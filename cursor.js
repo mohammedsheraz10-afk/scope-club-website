@@ -228,6 +228,9 @@
     document.addEventListener('touchstart',onTouchStart,{ passive: true });
     draw();
     initMagnetic();
+
+    /* Signal that canvas cursor is active — remove fallback class */
+    document.body.classList.remove('no-canvas-cursor');
   }
 
   if (document.readyState === 'loading') {
