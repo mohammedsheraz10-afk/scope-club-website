@@ -86,6 +86,20 @@ body {
   transition: background var(--dur-slow) var(--ease), color var(--dur-slow) var(--ease);
 }
 
+/* Show default cursor if canvas cursor fails to load */
+body.no-canvas-cursor {
+  cursor: auto;
+}
+body.no-canvas-cursor * {
+  cursor: auto !important;
+}
+body.no-canvas-cursor a,
+body.no-canvas-cursor button,
+body.no-canvas-cursor [role="tab"],
+body.no-canvas-cursor select {
+  cursor: pointer !important;
+}
+
 /* restore cursor on touch devices */
 @media (pointer: coarse) { body { cursor: auto; } }
 
