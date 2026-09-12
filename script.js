@@ -345,3 +345,27 @@
   });
 
 })();
+
+/* ── INTRO SCREEN ─────────────────────────────────────────────── */
+(function () {
+  const intro = document.getElementById('introScreen');
+  if (!intro) return;
+
+  /* Lock scroll while intro is visible */
+  document.body.style.overflow = 'hidden';
+
+  function dismissIntro() {
+    intro.classList.add('exit');
+
+    /* After exit animation, fully remove and unlock scroll */
+    intro.addEventListener('transitionend', () => {
+      intro.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, { once: true });
+  }
+
+  /* Dismiss on click, tap, or any key press */
+  intro.addEventListener('click',     dismissIntro, { once: true });
+  intro.addEventListener('touchstart', dismissIntro, { once: true, passive: true });
+  document.addEventListener('keydown', dismissIntro, { once: true });
+})();
